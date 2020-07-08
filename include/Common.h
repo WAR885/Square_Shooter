@@ -1,0 +1,10 @@
+#ifndef COMMON_H_INCLUDED
+#define COMMON_H_INCLUDED
+#define PI 3.14159265
+
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 640;
+
+
+
+#endif // COMMON_H_INCLUDED

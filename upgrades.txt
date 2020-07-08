@@ -1,0 +1,36 @@
+start game: machine gun: gun right now.
+player upgrades:
+extra life*infinity
+turning speed*3
+gun upgrades:
+shotgun: fires 3 shots. cheapest upgrade
+lazer: fires one line across screen. does lots of damage. long reload. expensive upgrade
+cannon: fires aoe bomb. good for weak enemies. short range. mouse controlled. long reload. extra expensive upgrade.
+you can switch in between guns.
+machine gun upgrades:
+bullet damage upgrade*1
+bullet firing speed*2
+shotgun upgrades:
+bullet speed upgrade*2
+bullet spread upgrade: up to 5 bullets.
+lazer:
+duration of beam*3
+beam reload speed*3
+cannon:
+aoe affect*2
+range*2
+reload speed*1
+notes:
+each upgrades scale in cost every time you upgrade that upgrade.
+key p pauses the game.
+key tab goes to store and pauses game.
+key p 2nd time unpauses the game.
+turret points toward mouse.
+space key to shoot bullets.
+screens:
+main menu
+game
+options
+game over
+shop
+pause
