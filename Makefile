@@ -13,7 +13,6 @@ EXECUTABLE	:= main
 all: $(BIN)/$(EXECUTABLE)
 
 run: clean all
-	cls
 	./$(BIN)/$(EXECUTABLE).exe
 
 $(BIN)/$(EXECUTABLE): $(SRC)/*.cpp

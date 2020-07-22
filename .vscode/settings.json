@@ -1,7 +1,7 @@
 {
-    "files.associations": {
-        "*.tpp": "cpp",
-        "iostream": "cpp"
-    },
-    "terminal.integrated.shell.windows": "cmd.exe"
+  "files.associations": {
+    "*.tpp": "cpp",
+    "iostream": "cpp"
+  },
+  "terminal.integrated.shell.windows": "powershell.exe"
 }

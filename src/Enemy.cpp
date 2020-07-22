@@ -135,8 +135,10 @@ void Enemy::DeathAnimationRender(SDL_Renderer *renderer)
 
     if (DeathAnimationCounter < 180)
     {
+        SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
         DeathAnimationCounter++;
-        SDL_SetRenderDrawColor(renderer, Red_E, Green_E, Blue_E, Uint8((255.0 / 180.0) * DeathAnimationCounter));
+        Uint8 AlphaChannel = 255 - ((255.0 / 180.0) * DeathAnimationCounter);
+        SDL_SetRenderDrawColor(renderer, Red_E, Green_E, Blue_E, AlphaChannel);
     }
     SDL_RenderFillRect(renderer, &(Position_E));
 }
