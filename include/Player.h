@@ -31,7 +31,7 @@ public:
     int fire_time = 0;
     bool ifFire = false;
     SDL_Texture *arrow = NULL;
-    SDL_Surface *arrowsurface = IMG_Load("C:/Users/Ashton/Desktop/Game/Code blocks games/Game 1/bin/arrow.png");
+    SDL_Surface *arrowsurface = IMG_Load("C:/Users/Ashton/Documents/GitHub/Square_Shooter/bin/player.png");
     int center_x = 0;
     int center_y = 0;
 

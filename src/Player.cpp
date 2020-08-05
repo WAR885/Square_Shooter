@@ -31,7 +31,7 @@ void Player::fire()
     if (fire_time >= 10 && Health > 0)
     {
         FireAnimationCounter = 5;
-        double bul_degree = i - 5 + (rand() % 10);
+        double bul_degree = i - 95 + (rand() % 10);
         fire_time = 0;
         SDL_Rect bul;
         bul.h = 18;
