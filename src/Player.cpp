@@ -3,8 +3,8 @@ void Player::FireAnimation()
 {
     if (FireAnimationCounter == 5)
     {
-        velocity_x = -10 * cos(i * PI / 180.0);
-        velocity_y = -10 * sin(i * PI / 180.0);
+        velocity_x = -10 * cos((i - 90) * PI / 180.0);
+        velocity_y = -10 * sin((i - 90) * PI / 180.0);
         player_x = position.x + velocity_x;
         player_y = position.y + velocity_y;
     }
@@ -34,8 +34,8 @@ void Player::fire()
         double bul_degree = i - 95 + (rand() % 10);
         fire_time = 0;
         SDL_Rect bul;
-        bul.h = 18;
-        bul.w = 32;
+        bul.h = 24;
+        bul.w = 6;
         ifFire = true;
         double velocity_x = 5 * cos(bul_degree * PI / 180.0);
         double velocity_y = 5 * sin(bul_degree * PI / 180.0);
@@ -58,7 +58,7 @@ void Player::handle_collision()
 
 Player::Player()
 {
-    SDL_SetColorKey(arrowsurface, SDL_TRUE, SDL_MapRGB(arrowsurface->format, 0, 0xFF, 0xFF));
+    SDL_SetColorKey(playersurface, SDL_TRUE, SDL_MapRGB(playersurface->format, 0, 0xFF, 0xFF));
     position.x = SCREEN_WIDTH / 2 - SCREEN_WIDTH / 16;
     position.y = SCREEN_HEIGHT / 2 - SCREEN_HEIGHT / 16;
     position.h = SCREEN_HEIGHT / 8;
@@ -68,8 +68,8 @@ Player::Player()
     i = 0;
     ifFire = false;
     fire_time = 0;
-    center_x = (SCREEN_WIDTH / 2) - 16;
-    center_y = (SCREEN_HEIGHT / 2) - 9;
+    center_x = (SCREEN_WIDTH / 2) - 3;
+    center_y = (SCREEN_HEIGHT / 2) - 10;
     i = i % 360;
     Health = 3;
 }
@@ -86,9 +86,10 @@ void Player::render(SDL_Renderer *renderer)
     {
         FireAnimation();
     }
-    arrow = SDL_CreateTextureFromSurface(renderer, arrowsurface);
-    int arrowheight = arrowsurface->h;
-    int arrowwidth = arrowsurface->w;
+    player = SDL_CreateTextureFromSurface(renderer, playersurface);
+    bullet = SDL_CreateTextureFromSurface(renderer, bulletsurface);
+    int playerheight = playersurface->h;
+    int playerwidth = playersurface->w;
     if (Health > 0)
     {
         if (ifAnimation && player_animation_counter < 5)
@@ -97,7 +98,7 @@ void Player::render(SDL_Renderer *renderer)
         }
         else
         {
-            SDL_RenderCopyEx(renderer, arrow, NULL, &position, i, NULL, SDL_FLIP_NONE);
+            SDL_RenderCopyEx(renderer, player, NULL, &position, i, NULL, SDL_FLIP_NONE);
         }
     }
     fire_time++;

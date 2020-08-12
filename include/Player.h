@@ -30,8 +30,10 @@ public:
     void handle_collision();
     int fire_time = 0;
     bool ifFire = false;
-    SDL_Texture *arrow = NULL;
-    SDL_Surface *arrowsurface = IMG_Load("C:/Users/Ashton/Documents/GitHub/Square_Shooter/bin/player.png");
+    SDL_Texture *player = NULL;
+    SDL_Surface *playersurface = IMG_Load("C:/Users/Ashton/Documents/GitHub/Square_Shooter/bin/player.png");
+    SDL_Texture *bullet = NULL;
+    SDL_Surface *bulletsurface = IMG_Load("C:/Users/Ashton/Documents/GitHub/Square_Shooter/bin/bullet.png");
     int center_x = 0;
     int center_y = 0;
 
