@@ -13,7 +13,6 @@ Enemy::Enemy(double Velocity)
     Green_E = 0;
     Blue_E = 0;
 }
-
 Enemy::~Enemy()
 {
     //dtor
@@ -117,17 +116,18 @@ void Enemy::spawn_enemy(double Velocity)
 }
 void Enemy::render(SDL_Renderer *renderer)
 {
+    enemy = SDL_CreateTextureFromSurface(renderer, enemysurface);
 
-    if (enemy_animation_counter < 5 && enemy_animation_counter > 0)
+    if (enemy_animation_counter < 10 && enemy_animation_counter > 0)
     {
         enemy_animation_counter++;
-        SDL_SetRenderDrawColor(renderer, Red_E, Green_E, Blue_E, Uint8(255 / enemy_animation_counter));
+        SDL_SetTextureAlphaMod(enemy, Uint8(255 / enemy_animation_counter));
     }
     else
     {
-        SDL_SetRenderDrawColor(renderer, Red_E, Green_E, Blue_E, 0xFF);
+        SDL_SetTextureAlphaMod(enemy ,0xFF);
     }
-    SDL_RenderFillRect(renderer, &(Position_E));
+    SDL_RenderCopyEx(renderer, enemy, NULL, &Position_E, 0, NULL, SDL_FLIP_NONE);
 }
 
 void Enemy::DeathAnimationRender(SDL_Renderer *renderer)
