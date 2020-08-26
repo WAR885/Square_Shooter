@@ -14,7 +14,6 @@ public:
     Enemy(double Velocity);
     Enemy()
     {
-
     }
     virtual ~Enemy();
     int enemy_animation_counter = 0;
@@ -26,17 +25,18 @@ public:
     Uint8 Red_E = 0;
     Uint8 Green_E = 0;
     Uint8 Blue_E = 0;
-    void render (SDL_Renderer*renderer);
+    void render(SDL_Renderer *renderer);
     SDL_Texture *enemy = NULL;
     SDL_Surface *enemysurface = IMG_Load("C:/Users/Ashton/Documents/GitHub/Square_Shooter/bin/enemy.png");
     bool EnemyDead = false;
     void spawn_enemy(double Velocity);
-    bool CheckCollision (SDL_Rect ColObj);
+    bool CheckCollision(SDL_Rect ColObj);
     virtual void movement();
     int enemy_type = 1;
     int score = 100;
     int DeathAnimationCounter = 0;
     void DeathAnimationRender(SDL_Renderer *renderer);
+    int EnemyAngle();
 
 protected:
 private:

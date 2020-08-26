@@ -125,9 +125,10 @@ void Enemy::render(SDL_Renderer *renderer)
     }
     else
     {
-        SDL_SetTextureAlphaMod(enemy ,0xFF);
+        SDL_SetTextureAlphaMod(enemy, 0xFF);
     }
-    SDL_RenderCopyEx(renderer, enemy, NULL, &Position_E, 0, NULL, SDL_FLIP_NONE);
+    int angle = EnemyAngle();
+    SDL_RenderCopyEx(renderer, enemy, NULL, &Position_E, angle + 90, NULL, SDL_FLIP_NONE);
 }
 
 void Enemy::DeathAnimationRender(SDL_Renderer *renderer)
@@ -138,9 +139,9 @@ void Enemy::DeathAnimationRender(SDL_Renderer *renderer)
         SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
         DeathAnimationCounter++;
         Uint8 AlphaChannel = 255 - ((255.0 / 30.0) * DeathAnimationCounter);
-        SDL_SetRenderDrawColor(renderer, Red_E, Green_E, Blue_E, AlphaChannel);
+        SDL_SetTextureAlphaMod(enemy, AlphaChannel);
     }
-    SDL_RenderFillRect(renderer, &(Position_E));
+    SDL_RenderCopyEx(renderer, enemy, NULL, &Position_E, 0, NULL, SDL_FLIP_NONE);
 }
 void Enemy::movement()
 {
@@ -175,4 +176,11 @@ bool Enemy::CheckCollision(SDL_Rect ColObj)
         }
     }
     return false;
+}
+int Enemy::EnemyAngle()
+{
+    int center_y = SCREEN_HEIGHT / 2;
+    int center_x = SCREEN_WIDTH / 2;
+    double angle = atan2(center_y - Position_E.y, center_x - Position_E.x) * 180 / PI;
+    return angle;
 }
