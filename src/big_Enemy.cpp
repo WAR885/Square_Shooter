@@ -9,6 +9,7 @@ big_Enemy::big_Enemy(double Velocity)
     Green_E = 0;
     Blue_E = 150;
     spawn_enemy(Velocity);
+    enemysurface = IMG_Load("C:/Users/Ashton/Documents/GitHub/Square_Shooter/bin/big enemy.png");
 }
 
 big_Enemy::~big_Enemy()

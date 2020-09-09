@@ -27,7 +27,7 @@ public:
     Uint8 Blue_E = 0;
     void render(SDL_Renderer *renderer);
     SDL_Texture *enemy = NULL;
-    SDL_Surface *enemysurface = IMG_Load("C:/Users/Ashton/Documents/GitHub/Square_Shooter/bin/enemy.png");
+    SDL_Surface *enemysurface;
     bool EnemyDead = false;
     void spawn_enemy(double Velocity);
     bool CheckCollision(SDL_Rect ColObj);

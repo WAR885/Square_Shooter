@@ -20,6 +20,7 @@ public:
     double Velocity;
     void spawn_enemy(double _Velocity);
     int score = 150;
+
 protected:
 
 private:

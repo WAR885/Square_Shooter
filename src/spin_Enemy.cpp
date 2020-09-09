@@ -12,6 +12,7 @@ spin_Enemy::spin_Enemy(double Velocity)
     Green_E = 168;
     Blue_E = 50;
     spawn_enemy(Velocity);
+    enemysurface = IMG_Load("C:/Users/Ashton/Documents/GitHub/Square_Shooter/bin/spin enemy.png");
 }
 
 void spin_Enemy::movement()

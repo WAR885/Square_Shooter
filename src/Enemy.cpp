@@ -12,6 +12,7 @@ Enemy::Enemy(double Velocity)
     Red_E = 255;
     Green_E = 0;
     Blue_E = 0;
+    enemysurface = IMG_Load("C:/Users/Ashton/Documents/GitHub/Square_Shooter/bin/enemy.png");
 }
 Enemy::~Enemy()
 {
@@ -141,7 +142,8 @@ void Enemy::DeathAnimationRender(SDL_Renderer *renderer)
         Uint8 AlphaChannel = 255 - ((255.0 / 30.0) * DeathAnimationCounter);
         SDL_SetTextureAlphaMod(enemy, AlphaChannel);
     }
-    SDL_RenderCopyEx(renderer, enemy, NULL, &Position_E, 0, NULL, SDL_FLIP_NONE);
+    int angle = EnemyAngle();
+    SDL_RenderCopyEx(renderer, enemy, NULL, &Position_E, angle + 90, NULL, SDL_FLIP_NONE);
 }
 void Enemy::movement()
 {
