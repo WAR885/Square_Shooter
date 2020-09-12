@@ -11,7 +11,7 @@ class Enemy
 {
 public:
     int Health = 0;
-    Enemy(double Velocity);
+    Enemy(double Velocity, SDL_Renderer *renderer);
     Enemy()
     {
     }

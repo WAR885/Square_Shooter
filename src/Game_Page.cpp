@@ -1,12 +1,14 @@
 #include "Game_Page.h"
 
-Game_Page::Game_Page() : Page()
+Game_Page::Game_Page(SDL_Renderer *renderer) : Page()
 {
     //ctor
     TTF_Font *pixel_font = TTF_OpenFont("C:/Users/Ashton/Desktop/Game/Code blocks games/Game 1/bin/VT323-Regular.ttf", 24);
     main_player = Player();
     LivesText = Text(20, 0, 100, 50, pixel_font);
     ScoreText = Text(500, 0, 100, 50, pixel_font);
+    backround_surface = IMG_Load("C:/Users/Ashton/Documents/GitHub/Square_Shooter/bin/backround.png");
+    backround_texture = SDL_CreateTextureFromSurface(renderer, backround_surface);
 }
 
 void Game_Page::Reset()
@@ -20,6 +22,8 @@ void Game_Page::Reset()
 Game_Page::~Game_Page()
 {
     //dtor
+    delete backround_surface;
+    delete backround_texture;
 }
 void Game_Page::render(SDL_Renderer *renderer)
 {
@@ -38,10 +42,11 @@ void Game_Page::render(SDL_Renderer *renderer)
     }
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderClear(renderer);
+    SDL_RenderCopyEx(renderer, backround_texture, NULL, NULL, 0, NULL, SDL_FLIP_NONE);
     framecount = framecount % 90;
     if (framecount == 0)
     {
-        enemy_manager.spawn_enemy();
+        enemy_manager.spawn_enemy(renderer);
     }
     framecount++;
     int cur_bul_index = 0;

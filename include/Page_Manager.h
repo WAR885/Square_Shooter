@@ -14,9 +14,9 @@ public:
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-    page_list[0] = new Start_Game_Page();
-    page_list[1] = new Game_Page();
-    page_list[2] = new Game_Over_Page();
+    page_list[0] = new Start_Game_Page(renderer);
+    page_list[1] = new Game_Page(renderer);
+    page_list[2] = new Game_Over_Page(renderer);
     current_page_index = 0;
   }
   virtual ~Page_Manager()
@@ -24,6 +24,7 @@ public:
     delete page_list[0];
     delete page_list[1];
     delete page_list[2];
+    delete renderer;
   }
   Page *page_list[3];
   int current_page_index;

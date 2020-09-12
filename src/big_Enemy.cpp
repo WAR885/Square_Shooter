@@ -1,6 +1,6 @@
 #include "big_Enemy.h"
 
-big_Enemy::big_Enemy(double Velocity)
+big_Enemy::big_Enemy(double Velocity, SDL_Renderer *renderer) : Enemy(Velocity, renderer)
 {
     Position_E.h = 80;
     Position_E.w = 80;

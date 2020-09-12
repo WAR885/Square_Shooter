@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-spin_Enemy::spin_Enemy(double Velocity)
+spin_Enemy::spin_Enemy(double Velocity, SDL_Renderer *renderer) : Enemy(Velocity, renderer)
 {
     Position_E.h = 40;
     Position_E.w = 40;

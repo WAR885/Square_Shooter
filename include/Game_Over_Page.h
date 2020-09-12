@@ -17,7 +17,7 @@
 class Game_Over_Page : public Page
 {
     public:
-        Game_Over_Page();
+        Game_Over_Page(SDL_Renderer *renderer);
         virtual ~Game_Over_Page();
         void render(SDL_Renderer* renderer);
     Button RetryButton;

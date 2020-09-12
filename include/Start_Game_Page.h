@@ -17,7 +17,7 @@
 class Start_Game_Page : public Page
 {
 public:
-    Start_Game_Page();
+    Start_Game_Page(SDL_Renderer *renderer);
     virtual ~Start_Game_Page();
     void render(SDL_Renderer *renderer);
     Button StartButton;

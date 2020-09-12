@@ -1,6 +1,6 @@
 #include "Enemy.h"
 
-Enemy::Enemy(double Velocity)
+Enemy::Enemy(double Velocity, SDL_Renderer *renderer)
 {
     Position_E.h = 40;
     Position_E.w = 40;
@@ -13,10 +13,13 @@ Enemy::Enemy(double Velocity)
     Green_E = 0;
     Blue_E = 0;
     enemysurface = IMG_Load("C:/Users/Ashton/Documents/GitHub/Square_Shooter/bin/enemy.png");
+    enemy = SDL_CreateTextureFromSurface(renderer, enemysurface);
 }
 Enemy::~Enemy()
 {
     //dtor
+    delete enemysurface;
+    delete enemy;
 }
 
 void Enemy::spawn_enemy(double Velocity)
@@ -117,8 +120,6 @@ void Enemy::spawn_enemy(double Velocity)
 }
 void Enemy::render(SDL_Renderer *renderer)
 {
-    enemy = SDL_CreateTextureFromSurface(renderer, enemysurface);
-
     if (enemy_animation_counter < 10 && enemy_animation_counter > 0)
     {
         enemy_animation_counter++;

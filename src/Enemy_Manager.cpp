@@ -131,7 +131,7 @@ bool Enemy_Manager::check_any_collision(SDL_Rect collision_object, int &score, b
     }
     return has_collided;
 }
-void Enemy_Manager::spawn_enemy()
+void Enemy_Manager::spawn_enemy(SDL_Renderer *renderer)
 {
     speedincrease += 0.001;
     if (rand() % 100 < big_enemy_chance)
@@ -140,7 +140,7 @@ void Enemy_Manager::spawn_enemy()
         {
             big_enemy_chance++;
         }
-        big_enemy_list.push_back(new big_Enemy(0.6 + speedincrease));
+        big_enemy_list.push_back(new big_Enemy(0.6 + speedincrease, renderer));
     }
     else if (rand() % 100 < spin_enemy_chance)
 
@@ -149,11 +149,11 @@ void Enemy_Manager::spawn_enemy()
         {
             spin_enemy_chance++;
         }
-        spin_enemy_list.push_back(new spin_Enemy(0.6));
+        spin_enemy_list.push_back(new spin_Enemy(0.6, renderer));
     }
     else
     {
-        enemy_list.push_back(new Enemy(0.6 + speedincrease));
+        enemy_list.push_back(new Enemy(0.6 + speedincrease, renderer));
     }
 }
 

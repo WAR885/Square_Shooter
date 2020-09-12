@@ -3,14 +3,12 @@
 #include "Enemy.h"
 #include "Common.h"
 
-
-class spin_Enemy:public Enemy
+class spin_Enemy : public Enemy
 {
 public:
-    spin_Enemy(double Velocity);
-    spin_Enemy():Enemy()
+    spin_Enemy(double Velocity, SDL_Renderer *renderer);
+    spin_Enemy() : Enemy()
     {
-
     }
     virtual ~spin_Enemy();
     void movement();
@@ -22,7 +20,6 @@ public:
     int score = 150;
 
 protected:
-
 private:
 };
 

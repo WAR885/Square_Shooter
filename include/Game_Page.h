@@ -19,11 +19,13 @@
 class Game_Page : public Page
 {
     public:
-        Game_Page();
-        virtual ~Game_Page();
-        void render(SDL_Renderer* renderer);
-       bool player_is_dead()
-       {
+      Game_Page(SDL_Renderer *renderer);
+      virtual ~Game_Page();
+      void render(SDL_Renderer *renderer);
+      SDL_Texture *backround_texture;
+      SDL_Surface *backround_surface;
+      bool player_is_dead()
+      {
         return main_player.Health <= 0;
        }
          void Reset();

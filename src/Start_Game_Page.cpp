@@ -1,7 +1,7 @@
 #include "Start_Game_Page.h"
 #include "Events.h"
 
-Start_Game_Page::Start_Game_Page() : Page()
+Start_Game_Page::Start_Game_Page(SDL_Renderer *renderer) : Page()
 {
   //ctor
   TTF_Font *pixel_font = TTF_OpenFont("C:/Users/Ashton/Desktop/Game/Code blocks games/Game 1/bin/VT323-Regular.ttf", 24);
