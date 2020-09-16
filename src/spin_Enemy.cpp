@@ -13,6 +13,7 @@ spin_Enemy::spin_Enemy(double Velocity, SDL_Renderer *renderer) : Enemy(Velocity
     Blue_E = 50;
     spawn_enemy(Velocity);
     enemysurface = IMG_Load("C:/Users/Ashton/Documents/GitHub/Square_Shooter/bin/spin enemy.png");
+    enemy = SDL_CreateTextureFromSurface(renderer, enemysurface);
 }
 
 void spin_Enemy::movement()

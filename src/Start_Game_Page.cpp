@@ -5,7 +5,7 @@ Start_Game_Page::Start_Game_Page(SDL_Renderer *renderer) : Page()
 {
   //ctor
   TTF_Font *pixel_font = TTF_OpenFont("C:/Users/Ashton/Desktop/Game/Code blocks games/Game 1/bin/VT323-Regular.ttf", 24);
-  OverText = Text(70, 50, 500, 100, pixel_font);
+  OverText = Text(70, 50, 500, 100, pixel_font,255, 255, 255);
   SDL_Event event;
   SDL_zero(event);
   event.type = ResetGame;
@@ -24,7 +24,7 @@ Start_Game_Page::~Start_Game_Page()
 
 void Start_Game_Page::render(SDL_Renderer *renderer)
 {
-  SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0xFF);
   SDL_RenderClear(renderer);
   OverText.render(renderer, "Square Shooter");
   StartButton.render(renderer);

@@ -11,10 +11,10 @@ Button::Button(int x, int y, int w, int h, int r, int g, int b, SDL_Event _event
     color.r = r;
     color.g = g;
     color.b = b;
-    color.a = 255;
+    color.a = 0;
     event = _event;
     TTF_Font *pixel_font = TTF_OpenFont("C:/Users/Ashton/Desktop/Game/Code blocks games/Game 1/bin/VT323-Regular.ttf", 24);
-    button_text = Text(x + 10, y, w - 20, h, pixel_font);
+    button_text = Text(x + 10, y, w - 20, h, pixel_font, 255, 255, 255);
 }
 void Button::render(SDL_Renderer *renderer)
 {
@@ -24,7 +24,7 @@ void Button::render(SDL_Renderer *renderer)
     }
     else
     {
-        button_text.SetColor(0, 0, 0);
+        button_text.SetColor(255, 255, 255);
     }
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
     SDL_RenderFillRect(renderer, &(box));

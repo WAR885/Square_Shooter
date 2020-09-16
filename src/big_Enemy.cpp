@@ -10,6 +10,7 @@ big_Enemy::big_Enemy(double Velocity, SDL_Renderer *renderer) : Enemy(Velocity, 
     Blue_E = 150;
     spawn_enemy(Velocity);
     enemysurface = IMG_Load("C:/Users/Ashton/Documents/GitHub/Square_Shooter/bin/big enemy.png");
+    enemy = SDL_CreateTextureFromSurface(renderer, enemysurface);
 }
 
 big_Enemy::~big_Enemy()

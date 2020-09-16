@@ -5,8 +5,8 @@ Game_Page::Game_Page(SDL_Renderer *renderer) : Page()
     //ctor
     TTF_Font *pixel_font = TTF_OpenFont("C:/Users/Ashton/Desktop/Game/Code blocks games/Game 1/bin/VT323-Regular.ttf", 24);
     main_player = Player();
-    LivesText = Text(20, 0, 100, 50, pixel_font);
-    ScoreText = Text(500, 0, 100, 50, pixel_font);
+    LivesText = Text(20, 0, 100, 50, pixel_font, 255, 255, 255);
+    ScoreText = Text(500, 0, 100, 50, pixel_font, 255, 255, 255);
     backround_surface = IMG_Load("C:/Users/Ashton/Documents/GitHub/Square_Shooter/bin/backround.png");
     backround_texture = SDL_CreateTextureFromSurface(renderer, backround_surface);
 }
